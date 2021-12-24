@@ -51,6 +51,20 @@ function displayBooks () {
     }
 }
 
+let newBookButton = document.querySelector('.new-book-button');
+
+function toggleForm() {
+    let form = document.querySelector('.form-container');
+    if (form.style.display === 'none') {
+        form.style.display = 'flex';
+    } 
+    else {
+        form.style.display = 'none';
+    }
+}
+
+newBookButton.addEventListener('click', toggleForm);
+
 addBookToLibrary(new Book('Romeo and Juliet', 'William Shakespeare', 336, false));
 
 displayBooks();
