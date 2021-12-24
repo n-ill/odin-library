@@ -16,12 +16,21 @@
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    margin-left: 15px;
     text-align: center;
 }
 
-input {
+input[type=text] {
     font-size: 18px;
     margin: 5px;
+}
+
+label {
+    margin-right: 30px;
+}
+
+input[type=submit] {
+    margin: 10px 20px 10px 0px;
 }
 
 .book {
