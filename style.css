@@ -13,7 +13,7 @@
 }
 
 .form-container {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-bottom: 15px;
     margin-left: 15px;

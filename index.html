@@ -12,7 +12,7 @@
 
 <body>
     <div class="form-container">
-        <form class="new-book-form">
+        <form class="new-book-form" onsubmit="formSubmit(); return false;">
             <input type="text" id="title" name="title" placeholder="Title" required><br>
             <input type="text" id="author" name="author" placeholder="Author" required><br>
             <input type="text" id="pages" name="pages" placeholder="Page length" required><br>
@@ -24,18 +24,11 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-
+    
     <div class="button-container">
         <button class="button new-book-button">Add New Book</button>
     </div>
-    <div class="grid-container">
-        <div class="book">
-            <div class="title">goosebumps</div>
-            <div class="author">alex</div>
-            <div class="pages">300</div>
-            <div class="read">no</div>
-        </div>
-    </div>
+    <div class="grid-container"></div>
 </body>
 
 </html>

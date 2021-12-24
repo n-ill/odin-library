@@ -1,4 +1,5 @@
 let myLibrary = [];
+let counter = 0;
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -14,7 +15,7 @@ function addBookToLibrary(aBook) {
 function displayBooks () {
     let container = document.querySelector('.grid-container');
 
-    for (let i = 0; i < myLibrary.length; i++) {
+    for (let i = counter; i < myLibrary.length; i++) {
         currentBook = myLibrary[i];
 
         let aBook = document.createElement('div');
@@ -49,6 +50,8 @@ function displayBooks () {
 
         container.appendChild(aBook);
     }
+
+    counter++;
 }
 
 let newBookButton = document.querySelector('.new-book-button');
@@ -63,10 +66,20 @@ function toggleForm() {
     }
 }
 
+function formSubmit() {
+    let title = document.forms[0].querySelector('input[name="title"]').textContent;
+    let author = document.forms[0].querySelector('input[name="author"]').textContent;
+    let pages = document.forms[0].querySelector('input[name="pages"]').textContent;
+    let read = document.querySelector('input[name="read"]:checked').value;
+    if (read === 'Yes') {
+        read = true;
+    }
+    else {
+        read = false;
+    }
 
+    addBookToLibrary(new Book(title, author, pages, read));
+    displayBooks();
+}
 
 newBookButton.addEventListener('click', toggleForm);
-
-addBookToLibrary(new Book('Romeo and Juliet', 'William Shakespeare', 336, false));
-
-displayBooks();
