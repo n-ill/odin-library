@@ -26,15 +26,21 @@ function displayBooks () {
 
         let aAuthor = document.createElement('div');
         aAuthor.className = 'author';
-        aAuthor.textContent = currentBook.author;
+        aAuthor.textContent = 'by ' + currentBook.author;
 
         let aPages = document.createElement('div');
         aPages.className = 'pages';
-        aPages.textContent = currentBook.pages;
+        aPages.textContent = currentBook.pages + ' pages';
 
         let aRead = document.createElement('div');
-        aRead.className = 'read';
-        aRead.textContent = currentBook.read;
+        if (currentBook.read) {
+            aRead.className = 'read';
+            aRead.textContent = 'READ';
+        }
+        else {
+            aRead.className = 'not-read';
+            aRead.textContent = 'NOT READ';
+        }
 
         aBook.appendChild(aTitle);
         aBook.appendChild(aAuthor);
@@ -45,6 +51,6 @@ function displayBooks () {
     }
 }
 
-addBookToLibrary(new Book('Romeo and Juliet', 'William Shakespeare', 336, true));
+addBookToLibrary(new Book('Romeo and Juliet', 'William Shakespeare', 336, false));
 
 displayBooks();

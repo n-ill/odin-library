@@ -12,6 +12,12 @@
     justify-content: center;
 }
 
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
 .book {
     text-align: center;
     box-shadow: 5px 5px 18px #888888;
