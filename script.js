@@ -10,48 +10,57 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(aBook) {
     myLibrary.push(aBook);
+    counter++;
 }
 
-function displayBooks () {
+function displayBook() {
     let container = document.querySelector('.grid-container');
 
-    for (let i = counter; i < myLibrary.length; i++) {
-        currentBook = myLibrary[i];
+    currentBook = myLibrary[counter - 1];
 
-        let aBook = document.createElement('div');
-        aBook.className = 'book';
+    let aBook = document.createElement('div');
+    aBook.className = 'book';
 
-        let aTitle = document.createElement('div');
-        aTitle.className = 'title';
-        aTitle.textContent = currentBook.title;
+    let aTitle = document.createElement('div');
+    aTitle.className = 'title';
+    aTitle.textContent = currentBook.title;
 
-        let aAuthor = document.createElement('div');
-        aAuthor.className = 'author';
-        aAuthor.textContent = 'by ' + currentBook.author;
+    let aAuthor = document.createElement('div');
+    aAuthor.className = 'author';
+    aAuthor.textContent = 'by ' + currentBook.author;
 
-        let aPages = document.createElement('div');
-        aPages.className = 'pages';
-        aPages.textContent = currentBook.pages + ' pages';
+    let aPages = document.createElement('div');
+    aPages.className = 'pages';
+    aPages.textContent = currentBook.pages + ' pages';
 
-        let aRead = document.createElement('div');
-        if (currentBook.read) {
-            aRead.className = 'read';
-            aRead.textContent = 'READ';
-        }
-        else {
-            aRead.className = 'not-read';
-            aRead.textContent = 'NOT READ';
-        }
-
-        aBook.appendChild(aTitle);
-        aBook.appendChild(aAuthor);
-        aBook.appendChild(aPages);
-        aBook.appendChild(aRead);
-
-        container.appendChild(aBook);
+    let aRead = document.createElement('div');
+    if (currentBook.read) {
+        aRead.className = 'read';
+        aRead.textContent = 'READ';
+    }
+    else {
+        aRead.className = 'not-read';
+        aRead.textContent = 'NOT READ';
     }
 
-    counter++;
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.className = 'remove-book-button';
+    removeButton.setAttribute('data-index', counter - 1);
+
+    aBook.appendChild(aTitle);
+    aBook.appendChild(aAuthor);
+    aBook.appendChild(aPages);
+    aBook.appendChild(aRead);
+    aBook.appendChild(removeButton);
+
+    container.appendChild(aBook);
+
+    removeButton.addEventListener('click', () => {
+        myLibrary.splice(myLibrary.indexOf(currentBook), 1);
+        aBook.style.display = 'none';
+        counter--;
+    });
 }
 
 let newBookButton = document.querySelector('.new-book-button');
@@ -60,7 +69,7 @@ function toggleForm() {
     let form = document.querySelector('.form-container');
     if (form.style.display === 'none') {
         form.style.display = 'flex';
-    } 
+    }
     else {
         form.style.display = 'none';
     }
@@ -79,7 +88,7 @@ function formSubmit() {
     }
 
     addBookToLibrary(new Book(title, author, pages, read));
-    displayBooks();
+    displayBook();
 
     document.querySelector('.new-book-form').reset();
     toggleForm();

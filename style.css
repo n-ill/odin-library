@@ -44,10 +44,12 @@ input[type=submit] {
 
 .read {
     color: green;
+    font-weight: 700;
 }
 
 .not-read {
     color: red;
+    font-weight: 700;
 }
 
 .title {
