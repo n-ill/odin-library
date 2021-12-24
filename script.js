@@ -45,14 +45,29 @@ function displayBook() {
 
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-    removeButton.className = 'remove-book-button';
-    removeButton.setAttribute('data-index', counter - 1);
+
+    let toggleRead = document.createElement('button');
+    toggleRead.textContent = 'Read';
+
+    toggleRead.addEventListener('click', () => {
+        if (currentBook.read) {
+            currentBook.read = false;
+            aRead.className = 'not-read';
+            aRead.textContent = 'NOT READ';
+        }
+        else {
+            currentBook.read = true;
+            aRead.className = 'read';
+            aRead.textContent = 'READ';
+        }
+    });
 
     aBook.appendChild(aTitle);
     aBook.appendChild(aAuthor);
     aBook.appendChild(aPages);
     aBook.appendChild(aRead);
     aBook.appendChild(removeButton);
+    aBook.appendChild(toggleRead);
 
     container.appendChild(aBook);
 
