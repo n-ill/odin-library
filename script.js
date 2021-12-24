@@ -67,9 +67,9 @@ function toggleForm() {
 }
 
 function formSubmit() {
-    let title = document.forms[0].querySelector('input[name="title"]').textContent;
-    let author = document.forms[0].querySelector('input[name="author"]').textContent;
-    let pages = document.forms[0].querySelector('input[name="pages"]').textContent;
+    let title = document.querySelector('input[name="title"]').value;
+    let author = document.querySelector('input[name="author"]').value;
+    let pages = document.querySelector('input[name="pages"]').value;
     let read = document.querySelector('input[name="read"]:checked').value;
     if (read === 'Yes') {
         read = true;
@@ -80,6 +80,9 @@ function formSubmit() {
 
     addBookToLibrary(new Book(title, author, pages, read));
     displayBooks();
+
+    document.querySelector('.new-book-form').reset();
+    toggleForm();
 }
 
 newBookButton.addEventListener('click', toggleForm);
