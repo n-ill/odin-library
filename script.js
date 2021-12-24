@@ -63,6 +63,8 @@ function toggleForm() {
     }
 }
 
+
+
 newBookButton.addEventListener('click', toggleForm);
 
 addBookToLibrary(new Book('Romeo and Juliet', 'William Shakespeare', 336, false));

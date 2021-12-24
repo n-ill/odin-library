@@ -12,12 +12,12 @@
 
 <body>
     <div class="form-container">
-        <form>
-            <input type="text" id="title" name="title" placeholder="Title"><br>
-            <input type="text" id="author" name="author" placeholder="Author"><br>
-            <input type="text" id="pages" name="pages" placeholder="Page length"><br>
+        <form class="new-book-form">
+            <input type="text" id="title" name="title" placeholder="Title" required><br>
+            <input type="text" id="author" name="author" placeholder="Author" required><br>
+            <input type="text" id="pages" name="pages" placeholder="Page length" required><br>
             <p style="font-size: 18px; margin: 5px 0px 5px 0px;">Have you read this book?</p>
-            <input type="radio" id="yes" name="read" value="Yes">
+            <input type="radio" id="yes" name="read" value="Yes" required>
             <label for="yes">Yes</label><br>
             <input type="radio" id="no" name="read" value="no">
             <label for="no">No</label><br>
